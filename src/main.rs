@@ -66,6 +66,12 @@ fn DogView() -> Element {
 // Expose a `save_dog` endpoint on our server that takes an "image" parameter
 #[server]
 async fn save_dog(image: String) -> Result<(), ServerFnError> {
+    DB.with(|f| f.execute("INSERT INTO dogs (url) VALUES (?1)", &[&image]))?;
+    Ok(())
+}
+
+/*#[server] example that writes to a text file
+async fn save_dog(image: String) -> Result<(), ServerFnError> {
     use std::io::Write;
 
     // Open the `dogs.txt` file in append-only mode, creating it if it doesn't exist;
@@ -80,6 +86,27 @@ async fn save_dog(image: String) -> Result<(), ServerFnError> {
     file.write_fmt(format_args!("{image}\n"));
 
     Ok(())
+}
+
+ */
+// The database is only available to server code
+#[cfg(feature = "server")]
+thread_local! {
+    pub static DB: rusqlite::Connection = {
+        // Open the database from the persisted "hotdog.db" file
+        let conn = rusqlite::Connection::open("hotdog.db").expect("Failed to open database");
+
+        // Create the "dogs" table if it doesn't already exist
+        conn.execute_batch(
+            "CREATE TABLE IF NOT EXISTS dogs (
+                id INTEGER PRIMARY KEY,
+                url TEXT NOT NULL
+            );",
+        ).unwrap();
+
+        // Return the connection
+        conn
+    };
 }
 
 /*
