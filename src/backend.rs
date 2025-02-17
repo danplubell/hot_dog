@@ -1,9 +1,14 @@
 use crate::server_fn;
 use dioxus::prelude::{server, ServerFnError};
 
+#[derive(serde::Deserialize)]
+pub struct DogApi {
+    pub(crate) message: String,
+}
+
 // Expose a `save_dog` endpoint on our server that takes an "image" parameter
 #[server]
-async fn save_dog(image: String) -> Result<(), ServerFnError> {
+pub async fn save_dog(image: String) -> Result<(), ServerFnError> {
     DB.with(|f| f.execute("INSERT INTO dogs (url) VALUES (?1)", &[&image]))?;
     Ok(())
 }

@@ -1,10 +1,13 @@
-use dioxus::core_macro::{component, rsx};
-use dioxus::dioxus_core::Element;
-use dioxus::hooks::use_resource;
-use crate::DogApi;
+use dioxus::prelude::*;
+use crate::backend::{save_dog, DogApi};
+#[derive(Routable, Clone, PartialEq)]
+pub enum Route {
+    #[route("/")]
+    DogView,
+}
 
 #[component]
-fn DogView() -> Element {
+pub fn DogView() -> Element {
 
 
     let mut img_src = use_resource(|| async move {

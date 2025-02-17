@@ -3,10 +3,8 @@
 mod components;
 mod backend;
 
-use crate::Route::DogView;
-use crate::components::*;
-use dioxus::logger::tracing::info;
 use dioxus::prelude::*;
+use crate::components::Route;
 
 static CSS: Asset = asset!("/assets/main.css");
 fn main() {
@@ -16,15 +14,6 @@ fn main() {
 #[derive(Clone)]
 pub(crate) struct TitleState(String);
 
-#[derive(serde::Deserialize)]
-struct DogApi {
-    message: String,
-}
-#[derive(Routable, Clone, PartialEq)]
-enum Route {
-    #[route("/")]
-    DogView,
-}
 
 #[component]
 fn App() -> Element {
