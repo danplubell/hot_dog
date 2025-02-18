@@ -1,10 +1,6 @@
+use crate::components::nav::NavBar;
 use dioxus::prelude::*;
 use crate::backend::{save_dog, DogApi};
-#[derive(Routable, Clone, PartialEq)]
-pub enum Route {
-    #[route("/")]
-    DogView,
-}
 
 #[component]
 pub fn DogView() -> Element {

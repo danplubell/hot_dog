@@ -4,7 +4,7 @@ mod components;
 mod backend;
 
 use dioxus::prelude::*;
-use crate::components::Route;
+use crate::components::routes::Route;
 
 static CSS: Asset = asset!("/assets/main.css");
 fn main() {
