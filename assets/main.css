@@ -148,3 +148,7 @@ a#heart {
     left: 10px;
     z-index: 10;
 }
+.favorites-delete-button button {
+    background-color: white;
+    color: black;
+}

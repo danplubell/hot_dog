@@ -1107,6 +1107,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "dioxus-heroicons"
+version = "0.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "17ebf06308bbb8b4c5c736a8d18a036703dab761b45cf893f6ef362dac5a90fa"
+dependencies = [
+ "dioxus",
+]
+
+[[package]]
 name = "dioxus-history"
 version = "0.6.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2264,6 +2273,7 @@ name = "hot_dog"
 version = "0.1.0"
 dependencies = [
  "dioxus",
+ "dioxus-heroicons",
  "dioxus-router",
  "reqwest",
  "rusqlite",

@@ -1,11 +1,12 @@
 use crate::backend::list_dogs;
 use dioxus::prelude::*;
+use crate::components::delete_button::DeleteButton;
 
 #[component]
 pub fn Favorites() -> Element {
     // Create a pending resource that resolves to the list of dogs from the backend
     // Wait for the favorites list to resolve with `.suspend()`
-    let mut favorites = use_resource(list_dogs).suspend()?;
+    let favorites = use_resource(list_dogs).suspend()?;
 
     rsx! {
         div { id: "favorites",
@@ -15,7 +16,8 @@ pub fn Favorites() -> Element {
                     div {
                         key: id,
                         class: "favorite-dog",
-                        img { src: "{url}" }
+                        img { src: "{url}" },
+//                        DeleteButton {}
                     }
                 }
             }

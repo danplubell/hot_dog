@@ -27,6 +27,5 @@ pub fn DogView() -> Element {
                 _ = save_dog(current).await;
             }, id: "save", "save!" }
         }
-
     }
 }
