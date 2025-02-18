@@ -1,3 +1,4 @@
+use dioxus::logger::tracing::debug;
 use crate::server_fn;
 use dioxus::prelude::{server, ServerFnError};
 
@@ -12,15 +13,15 @@ pub async fn save_dog(image: String) -> Result<(), ServerFnError> {
     DB.with(|f| f.execute("INSERT INTO dogs (url) VALUES (?1)", &[&image]))?;
     Ok(())
 }
-/*
+
 #[server]
-pub async fn delete_dog(id: String) -> Result<(), ServerFnError> {
-    println!("delete_dog: {}", id);
+pub async fn delete_dog(id: usize) -> Result<(), ServerFnError> {
+    debug!("delete_dog: {}", id);
     DB.with(|f| f.execute("DELETE FROM dogs WHERE id = ?", &[&id]))?;
     Ok(())
 }
 
- */
+ 
 // Query the database and return the last 10 dogs and their url
 #[server]
 pub async fn list_dogs() -> Result<Vec<(usize, String)>, ServerFnError> {

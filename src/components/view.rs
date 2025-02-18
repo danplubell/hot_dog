@@ -1,4 +1,3 @@
-use crate::components::nav::NavBar;
 use dioxus::prelude::*;
 use crate::backend::{save_dog, DogApi};
 

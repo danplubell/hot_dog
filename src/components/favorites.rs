@@ -17,7 +17,7 @@ pub fn Favorites() -> Element {
                         key: id,
                         class: "favorite-dog",
                         img { src: "{url}" },
-//                        DeleteButton {}
+                        DeleteButton {delete_id: id}
                     }
                 }
             }

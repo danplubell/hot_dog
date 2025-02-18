@@ -5,9 +5,12 @@ mod backend;
 
 use dioxus::prelude::*;
 use crate::components::routes::Route;
+use dioxus::logger::tracing::{Level};
+
 
 static CSS: Asset = asset!("/assets/main.css");
 fn main() {
+    dioxus::logger::init(Level::DEBUG).expect("logger failed to init");
     dioxus::launch(App);
 }
 
