@@ -13,6 +13,20 @@ pub async fn save_dog(image: String) -> Result<(), ServerFnError> {
     Ok(())
 }
 
+// Query the database and return the last 10 dogs and their url
+#[server]
+pub async fn list_dogs() -> Result<Vec<(usize, String)>, ServerFnError> {
+    let dogs = DB.with(|f| {
+        f.prepare("SELECT id, url FROM dogs ORDER BY id DESC LIMIT 10")
+            .unwrap()
+            .query_map([], |row| Ok((row.get(0)?, row.get(1)?)))
+            .unwrap()
+            .map(|r| r.unwrap())
+            .collect()
+    });
+
+    Ok(dogs)
+}
 /*#[server] example that writes to a text file
 async fn save_dog(image: String) -> Result<(), ServerFnError> {
     use std::io::Write;
