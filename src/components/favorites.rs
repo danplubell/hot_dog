@@ -6,7 +6,7 @@ use crate::components::delete_button::DeleteButton;
 pub fn Favorites() -> Element {
     // Create a pending resource that resolves to the list of dogs from the backend
     // Wait for the favorites list to resolve with `.suspend()`
-    let mut favorites_resource = use_resource(list_dogs);
+    let favorites_resource = use_resource(list_dogs);
     let favorites = favorites_resource.suspend()?;
     rsx! {
         div { id: "favorites",
@@ -20,7 +20,6 @@ pub fn Favorites() -> Element {
                         DeleteButton {delete_id: id, refresh: favorites_resource }
                     }
                 }
-                button{onclick: move |_| {favorites_resource.restart()}, "Refresh"}
             }
         }
     }

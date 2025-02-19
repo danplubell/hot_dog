@@ -23,6 +23,5 @@ pub fn DeleteButton(mut props: DeleteButtonProps) -> Element {
                 size: 30,
                 icon: Shape::Trash,
             }
-    //        button { id: "favorite-button-delete",  class: "favorites-delete-button","Delete"}
         }
 }
