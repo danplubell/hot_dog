@@ -7,11 +7,13 @@ use crate::backend::delete_dog;
 #[derive(Props, PartialEq, Clone)]
 pub struct DeleteButtonProps {
     delete_id: usize,
+    refresh:  Resource<Result<Vec<(usize, String)>, ServerFnError>>,
 }
 #[component]
-pub fn DeleteButton(props: DeleteButtonProps) -> Element {
+pub fn DeleteButton(mut props: DeleteButtonProps) -> Element {
     let onclick = move |_| async move {
         _ = delete_dog(props.delete_id).await;
+        props.refresh.restart();
     };
     rsx! {
             IconButton {
