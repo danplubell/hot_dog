@@ -1,6 +1,7 @@
 pub mod favorites;
 pub mod nav;
-pub mod view;
+pub mod dog_view;
 
 pub mod routes;
 mod delete_button;
+mod dog_card;

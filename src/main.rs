@@ -43,13 +43,4 @@ fn App() -> Element {
     }
 }
 
-#[component]
-fn Title() -> Element {
-    let title = use_context::<TitleState>();
-    rsx! {
-        div { id: "title",
-            h1 { "{title.0}" }
-        }
-    }
-}
 
