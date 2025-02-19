@@ -38,7 +38,7 @@ fn App() -> Element {
             href: "https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,slnt,wdth,wght,GRAD,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC@8..144,-10..0,25..151,100..1000,-200..150,323..603,25..135,649..854,-305..-98,560..788,416..570,528..760&display=block"
         }
 
-        document::Stylesheet { href: CSS }
+       // document::Stylesheet { href: CSS }
         Router::<Route> {}
     }
 }
