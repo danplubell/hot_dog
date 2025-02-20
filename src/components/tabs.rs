@@ -5,7 +5,7 @@ use dioxus::prelude::*;
 pub struct TabsProps {
     id: String,
     tabs: Vec<TabOption>,
-}
+    onactivate: EventHandler<String>,}
 
 #[derive(PartialEq, Clone)]
 pub struct TabOption {
@@ -17,6 +17,9 @@ pub struct TabOption {
 #[component]
 pub fn Tabs(props: TabsProps) -> Element {
     let mut selected = use_signal(|| String::from("none"));
+    use_effect(move || {
+        props.onactivate.call(selected());
+    });
     rsx! {
         div { id: props.id, class: "ids-tabs-container",
             div { class: "ids-tab-scroller",
@@ -24,12 +27,13 @@ pub fn Tabs(props: TabsProps) -> Element {
                     {
                         let tab_value = tab.value.clone();
                         rsx! {
-                            Tab { 
-                                key: tab_value.clone(), 
-                                id: tab_value.clone(), 
-                                label: tab.label, 
+                            Tab {
+                                key: tab_value.clone(),
+                                id: tab_value.clone(),
+                                label: tab.label,
                                 selected: tab.value == selected(),
-                                onclick: move |_| selected.set(tab.value.to_string())
+                                onclick: move |_| selected.set(tab.value.to_string()),
+                            
                             }
                         }
                     }
