@@ -7,3 +7,4 @@ mod delete_button;
 mod dog_card;
 mod tabs;
 mod tab;
+mod favorite_card;

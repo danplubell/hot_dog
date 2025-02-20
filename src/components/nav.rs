@@ -15,7 +15,7 @@ pub fn NavBar() -> Element {
                 nav.push(Route::Favorites);
             }
         }, id: "tabs", tabs}
-        Outlet::<Route> {}
+            Outlet::<Route> {}
     }
 }
 
