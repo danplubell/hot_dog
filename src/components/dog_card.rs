@@ -5,7 +5,7 @@ use dioxus::prelude::*;
 pub fn DogCard(img_src: Resource<String>) -> Element {
     rsx! {
         div {
-            id: "dog-card", class: "w-[340px] flex relative",
+            id: "dog-card", class: "w-[400px]  flex relative",
             div { id: "ids-card", class: "ids-card",
                 div { id: "ids-card-layout", class: "ids-card-layout",
                     div {
