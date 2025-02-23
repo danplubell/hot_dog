@@ -15,11 +15,11 @@ pub fn FavoriteCard(
     rsx! {
         div {
             id: "dog-card", class: "w-[340px] h-[400px] flex relative",
-            div { id: "ids-card", class: "ids-card justify-between",
-                div { id: "ids-card-layout", class: "ids-card-layout ",
+            div { id: "ids-card", class: "ids-card justify-between w-full",
+                div { id: "ids-card-layout", class: "ids-card-layout h-full",
                     div {
-                        id: "ids-card-media", class: "ids-card-media max-h-full max-w-full w-full h-full",
-                        img {class: "max-w-full max-h-full h-full w-full object-contain", src: img_src }
+                        id: "ids-card-media", class: "ids-card-media h-full",
+                        img { class: "h-full", src: img_src }
                     },
                 },
                 div {
