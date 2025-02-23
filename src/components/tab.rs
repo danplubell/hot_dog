@@ -7,7 +7,7 @@ pub struct TabProps {
     selected: bool,
 
 }
-#[component]
+
 pub fn Tab(props: TabProps)-> Element {
     rsx!{
         button {id: props.id, class: "ids-tab", "aria-selected": props.selected,

@@ -2,7 +2,7 @@ use crate::components::routes::Route;
 use dioxus::prelude::*;
 use crate::components::tabs::{TabOption, Tabs};
 
-#[component]
+
 pub fn NavBar() -> Element {
     let nav = use_navigator();
     let tabs = [TabOption { label: "Dogs".into(), value: "dogs".into(), selected: true, component: rsx!{Link { to: Route::DogView }  }  },
@@ -19,13 +19,3 @@ pub fn NavBar() -> Element {
     }
 }
 
-/*
-        div { id: "title",
-            Link { to: Route::DogView,
-                h1 { "🌭 HotDog! " }
-            }
-            Link { to: Route::Favorites, id: "heart", "♥️" } // <------- add this Link
-        }
-        Outlet::<Route> {}
-
- */

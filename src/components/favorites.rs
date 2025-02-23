@@ -3,7 +3,7 @@ use crate::components::delete_button::DeleteButton;
 use crate::components::favorite_card::FavoriteCard;
 use dioxus::prelude::*;
 
-#[component]
+
 pub fn Favorites() -> Element {
     // Create a pending resource that resolves to the list of dogs from the backend
     // Wait for the favorites list to resolve with `.suspend()`

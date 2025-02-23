@@ -14,7 +14,7 @@ pub struct TabOption {
     pub(crate) selected: bool,
     pub(crate) component: Element,
 }
-#[component]
+
 pub fn Tabs(props: TabsProps) -> Element {
     let mut selected = use_signal(|| String::from("none"));
     use_effect(move || {

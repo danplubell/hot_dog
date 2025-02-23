@@ -1,11 +1,15 @@
 use crate::backend::delete_dog;
 use dioxus::prelude::*;
-
-#[component]
-pub fn FavoriteCard(
+#[derive(PartialEq, Clone, Props)]
+pub struct FavoriteCardProps {
     img_src: String,
     delete_id: usize,
     refresh: Resource<Result<Vec<(usize, String)>, ServerFnError>>,
+
+}
+#[component]
+pub fn FavoriteCard(
+    FavoriteCardProps {delete_id, img_src, mut refresh }: FavoriteCardProps
 ) -> Element {
     let onclick = move |_| async move {
         _ = delete_dog(delete_id).await;

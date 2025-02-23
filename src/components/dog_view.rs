@@ -2,7 +2,7 @@ use dioxus::prelude::*;
 use crate::backend::{save_dog, DogApi};
 use crate::components::dog_card::DogCard;
 
-#[component]
+
 pub fn DogView() -> Element {
 
 
