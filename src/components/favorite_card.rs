@@ -1,20 +1,25 @@
-use dioxus::prelude::*;
 use crate::backend::delete_dog;
+use dioxus::prelude::*;
 
 #[component]
-pub fn FavoriteCard(img_src: String, delete_id: usize, refresh:  Resource<Result<Vec<(usize, String)>, ServerFnError>>) -> Element {
+pub fn FavoriteCard(
+    img_src: String,
+    delete_id: usize,
+    refresh: Resource<Result<Vec<(usize, String)>, ServerFnError>>,
+) -> Element {
     let onclick = move |_| async move {
         _ = delete_dog(delete_id).await;
         refresh.restart();
     };
 
-    rsx!{
-                div {
-            id: "dog-card", class: "w-[340px] flex relative",
-            div { id: "ids-card", class: "ids-card",
-                div { id: "ids-card-layout", class: "ids-card-layout",
+    rsx! {
+        div {
+            id: "dog-card", class: "w-[340px] h-[400px] flex relative",
+            div { id: "ids-card", class: "ids-card justify-between",
+                div { id: "ids-card-layout", class: "ids-card-layout ",
                     div {
-                        id: "ids-card-media", class: "ids-card-media", img { src: img_src }
+                        id: "ids-card-media", class: "ids-card-media max-h-full max-w-full w-full h-full",
+                        img {class: "max-w-full max-h-full h-full w-full object-contain", src: img_src }
                     },
                 },
                 div {
