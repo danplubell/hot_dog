@@ -2060,6 +2060,14 @@ button.ids-link[disabled] {
   max-height: 100%;
 }
 
+.max-h-\[400px\] {
+  max-height: 400px;
+}
+
+.min-h-\[400px\] {
+  min-height: 400px;
+}
+
 .w-\[340px\] {
   width: 340px;
 }
@@ -2072,12 +2080,32 @@ button.ids-link[disabled] {
   width: 100%;
 }
 
+.min-w-0 {
+  min-width: 0px;
+}
+
+.min-w-\[400px\] {
+  min-width: 400px;
+}
+
 .max-w-full {
   max-width: 100%;
 }
 
+.max-w-\[340px\] {
+  max-width: 340px;
+}
+
+.flex-shrink {
+  flex-shrink: 1;
+}
+
 .flex-row {
   flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
 }
 
 .flex-wrap {
