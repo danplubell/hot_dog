@@ -16,7 +16,7 @@ pub fn DogView() -> Element {
             .message
     });
     rsx! {
-        div { id: "dog_view_container", class: "w-full h-full flex justify-center items-center",
+        div { id: "dog_view_container", class: "p-2 w-full h-full flex justify-center items-center ",
             DogCard {img_src}
         }
     }

@@ -2048,12 +2048,20 @@ button.ids-link[disabled] {
   display: table;
 }
 
+.grid {
+  display: grid;
+}
+
 .h-\[400px\] {
   height: 400px;
 }
 
 .h-full {
   height: 100%;
+}
+
+.max-h-\[358px\] {
+  max-height: 358px;
 }
 
 .w-\[340px\] {
@@ -2066,6 +2074,10 @@ button.ids-link[disabled] {
 
 .w-full {
   width: 100%;
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .flex-row {
@@ -2094,6 +2106,10 @@ button.ids-link[disabled] {
 
 .gap-2 {
   gap: 0.5rem;
+}
+
+.gap-4 {
+  gap: 1rem;
 }
 
 .object-cover {

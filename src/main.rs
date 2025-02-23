@@ -19,7 +19,6 @@ fn main() {
 pub(crate) struct TitleState(String);
 
 
-#[component]
 fn App() -> Element {
     use_context_provider(|| TitleState("HotDog".to_string()));
     rsx! {

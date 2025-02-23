@@ -23,7 +23,7 @@ pub fn FavoriteCard(
                 div { id: "ids-card-layout", class: "ids-card-layout h-full",
                     div {
                         id: "ids-card-media", class: "ids-card-media h-full",
-                        img { class: "h-full object-cover", src: img_src }
+                        img { class: "h-full max-h-[358px] object-cover", src: img_src }
                     },
                 },
                 div {
